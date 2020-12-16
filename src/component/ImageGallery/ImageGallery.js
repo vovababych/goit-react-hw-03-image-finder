@@ -1,14 +1,15 @@
-import React, { Component } from 'react';
+import React from 'react';
+import ImageGalleryItem from '../ImageGalleryItem';
 // import PropTypes from 'prop-types';
 
-export class ImageGallery extends Component {
-  render() {
-    return (
-      <ul className="ImageGallery">
-        {/* <!-- Набор <li> с изображениями --> */}
-      </ul>
-    );
-  }
+function ImageGallery({ gallary, onOpenPicture }) {
+  return (
+    <ul className="ImageGallery">
+      {gallary.map(picture => (
+        <ImageGalleryItem picture={picture} onOpenPicture={onOpenPicture} />
+      ))}
+    </ul>
+  );
 }
 
 export default ImageGallery;

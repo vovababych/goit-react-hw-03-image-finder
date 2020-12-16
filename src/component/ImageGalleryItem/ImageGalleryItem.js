@@ -1,14 +1,18 @@
-import React, { Component } from 'react';
+// import React, { Component } from 'react';
 // import PropTypes from 'prop-types'
 
-export class ImageGalleryItem extends Component {
-  render() {
-    return (
-      <li className="ImageGalleryItem">
-        <img src="" alt="" className="ImageGalleryItem-image" />
-      </li>
-    );
-  }
+function ImageGalleryItem({ picture, onOpenPicture }) {
+  console.log(picture);
+  return (
+    <li key={picture.id} className="ImageGalleryItem" onClick={onOpenPicture}>
+      <img
+        src={picture.webformatURL}
+        alt=""
+        className="ImageGalleryItem-image"
+        data-largeImage={picture.largeImageURL}
+      />
+    </li>
+  );
 }
 
 export default ImageGalleryItem;
