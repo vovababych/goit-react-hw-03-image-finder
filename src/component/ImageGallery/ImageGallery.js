@@ -1,12 +1,12 @@
 import React from 'react';
+import s from './ImageGallery.module.css';
 import ImageGalleryItem from '../ImageGalleryItem';
 // import PropTypes from 'prop-types';
 
-function ImageGallery({ gallary, onOpenPicture }) {
-  console.log(gallary);
+function ImageGallery({ gallery, onOpenPicture }) {
   return (
-    <ul className="ImageGallery">
-      {gallary.map(picture => (
+    <ul className={s.gallery}>
+      {gallery.map(picture => (
         <ImageGalleryItem
           key={picture.id}
           picture={picture}

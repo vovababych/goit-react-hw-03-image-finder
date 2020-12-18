@@ -29,7 +29,7 @@ export class Modal extends Component {
   render() {
     return createPortal(
       <div className={s.overlay} onClick={this.handleOverlayClick}>
-        <div className={s.modal}>{this.props.children}</div>
+        <div className={s.modal}> {this.props.children}</div>
       </div>,
       rootModal,
     );

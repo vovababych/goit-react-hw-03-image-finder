@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
 // import PropTypes from 'prop-types';
 
+import s from './Searchbar.module.css';
+
 export class Searchbar extends Component {
   state = {
     inputSearch: '',
   };
 
-  handleInputSearch = e => {
+  handleInputChange = e => {
     this.setState({ inputSearch: e.target.value });
   };
 
@@ -23,20 +25,20 @@ export class Searchbar extends Component {
 
   render() {
     return (
-      <header className="Searchbar">
-        <form className="SearchForm" onSubmit={this.handleSubmit}>
-          <button type="submit" className="SearchForm-button">
-            <span className="SearchForm-button-label">Search</span>
+      <header className={s.container}>
+        <form className={s.form} onSubmit={this.handleSubmit}>
+          <button type="submit" className={s.button}>
+            <span className={s.buttonLabel}>Search</span>
           </button>
 
           <input
-            className="SearchForm-input"
+            className={s.input}
             type="text"
             value={this.state.inputSearch}
             autoComplete="off"
             autoFocus
             placeholder="Search images and photos"
-            onChange={this.handleInputSearch}
+            onChange={this.handleInputChange}
           />
         </form>
       </header>

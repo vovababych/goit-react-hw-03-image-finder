@@ -1,16 +1,17 @@
-// import React, { Component } from 'react';
 // import PropTypes from 'prop-types'
+
+import s from './ImageGalleryItem.module.css';
 
 function ImageGalleryItem({ picture, onOpenPicture }) {
   // console.log(picture);
   return (
-    <li className="ImageGalleryItem" onClick={onOpenPicture}>
-      <img
-        src={picture.webformatURL}
-        alt=""
-        className="ImageGalleryItem-image"
-        data-largeimage={picture.largeImageURL}
-      />
+    <li
+      className={s.item}
+      onClick={() => {
+        onOpenPicture(picture);
+      }}
+    >
+      <img src={picture.webformatURL} alt={picture.tags} className={s.image} />
     </li>
   );
 }
