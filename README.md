@@ -30,7 +30,7 @@
 `<Loader>`, `<Button>` и `<Modal>`. Готовые стили компонентов можно взять в
 файле [styles.css](./styles.css) и подправить под себя, если необходимо.
 
-![preview](./mockup/preview.jpg)
+![preview](./public/mockup/preview.jpg)
 
 ## Инструкция Pixabay API
 
