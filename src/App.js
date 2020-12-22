@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-// import PropTypes from 'prop-types';
+
 import s from './App.module.css';
 
 import Searchbar from './component/Searchbar';
@@ -40,18 +40,29 @@ export class App extends Component {
     this.setState({ showLoader: true });
 
     fetchDataApi(searchQuery, page)
-      .then(({ hits, total }) =>
+      .then(({ hits, total }) => {
         this.setState(prevState => ({
           gallery: [...prevState.gallery, ...hits],
           page: prevState.page + 1,
           total,
-        })),
-      )
+        }));
+        this.scrollToDown();
+      })
       .catch(error => this.setState({ error }))
       .finally(() => this.setState({ showLoader: false }));
   };
 
+  scrollToDown = () => {
+    window.scrollTo({
+      top: document.documentElement.scrollHeight,
+      behavior: 'smooth',
+    });
+  };
+
   handleFormSubmit = searchQuery => {
+    if (this.state.searchQuery === searchQuery) {
+      return;
+    }
     this.setState({ searchQuery, gallery: [], page: 1 });
   };
 
@@ -90,10 +101,7 @@ export class App extends Component {
         {showLoader && <PreLoader />}
 
         {gallery.length > 0 && !showLoader && showLoadMore && (
-          <LoadMore
-            onLoadMore={this.fetchGallary}
-            showBtn={this.showLoadMore}
-          />
+          <LoadMore onLoadMore={this.fetchGallary} />
         )}
 
         {showModal && (

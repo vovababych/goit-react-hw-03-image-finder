@@ -1,9 +1,8 @@
-// import PropTypes from 'prop-types'
+import PropTypes from 'prop-types';
 
 import s from './ImageGalleryItem.module.css';
 
 function ImageGalleryItem({ picture, onOpenPicture }) {
-  // console.log(picture);
   return (
     <li
       className={s.item}
@@ -15,5 +14,10 @@ function ImageGalleryItem({ picture, onOpenPicture }) {
     </li>
   );
 }
+
+ImageGalleryItem.propTypes = {
+  picture: PropTypes.object,
+  onOpenPicture: PropTypes.func,
+};
 
 export default ImageGalleryItem;
